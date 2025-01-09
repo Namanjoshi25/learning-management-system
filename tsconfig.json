@@ -6,6 +6,8 @@
     "strict": true,
     "noEmit": true,
     "noEmitOnError": false,
+    "noUnusedLocals": false, // Ignore unused local variables
+    "noUnusedParameters": false,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
