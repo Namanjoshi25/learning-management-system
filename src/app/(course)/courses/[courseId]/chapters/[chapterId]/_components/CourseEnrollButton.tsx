@@ -21,6 +21,7 @@ const CourseEnrollButton = ({price , courseId} : {price:number,courseId:string})
       
     } catch (error) {
       toast.error("Something went wrong")
+      console.log(error);
       setIsLoading(false)
     }
   }

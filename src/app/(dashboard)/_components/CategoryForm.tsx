@@ -11,7 +11,6 @@ import {
     FormItem,
     FormMessage
 } from '@/components/ui/form'
-import { Textarea} from '@/components/ui/textarea'   
 import { Button } from '@/components/ui/button'
 import { Pencil } from 'lucide-react'
 import { useState } from 'react'
@@ -24,7 +23,7 @@ import { Combobox } from '@/components/ui/combobox'
 
 interface CategoryFormProps {
     initialData : Course
-    courseId : String
+    courseId : string
     options:{label : string,value:string}[]
     
 }
@@ -54,6 +53,7 @@ const CategoryForm = ({initialData,courseId,options} : CategoryFormProps) => {
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }

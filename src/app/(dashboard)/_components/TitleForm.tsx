@@ -23,7 +23,7 @@ interface TitleFormProps {
         title : string,
 
     };
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({
@@ -52,6 +52,7 @@ const TitleForm = ({initialData,courseId} : TitleFormProps) => {
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }

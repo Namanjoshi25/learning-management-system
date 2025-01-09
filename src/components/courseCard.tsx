@@ -5,7 +5,6 @@ import React from 'react'
 import { IconBadge } from './icon-badge'
 import { BookOpen } from 'lucide-react'
 import { formatPrice } from '@/lib/format'
-import { Progress } from './ui/progress'
 import CourseProgress from './courseProgress'
 
 interface CourseCardProps {

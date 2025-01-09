@@ -26,7 +26,7 @@ const formSchema = z.object({
 })
 
 
-function page() {
+function Page() {
     const router = useRouter()
     const form = useForm<z.infer<typeof formSchema>>({
         resolver: zodResolver(formSchema),
@@ -43,6 +43,7 @@ function page() {
         toast.success("Course created")
         
        } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
        }
     }
@@ -107,4 +108,4 @@ function page() {
   )
 }
 
-export default page
+export default Page

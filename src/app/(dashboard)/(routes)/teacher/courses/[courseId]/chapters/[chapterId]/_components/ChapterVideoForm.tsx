@@ -2,24 +2,23 @@
 import * as z from 'zod'
 import axios from 'axios' 
 import { Button } from '@/components/ui/button'
-import { ImageIcon, Pencil, PlusCircle, Video } from 'lucide-react'
+import { Pencil, PlusCircle, Video } from 'lucide-react'
 import { useState } from 'react'
 import MuxPlayer from '@mux/mux-player-react'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
-import { Chapter, Course, MuxData } from '@prisma/client'
-import Image from 'next/image'
+import { Chapter, MuxData } from '@prisma/client'
 import FileUpload from '@/components/file-upload'
 
 
 interface ChapterVideoFormProps {
     initialData :Chapter & {muxData : MuxData | null}
-    courseId : String
-    chapterId : String
+    courseId : string
+    chapterId : string
     
 }
 const formSchema = z.object({
-    videoUrl: z.string().min(1)}
+    videoUrl: z.string()}
 )
 const ChapterVideoForm = ({initialData,courseId,chapterId} : ChapterVideoFormProps) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -34,6 +33,7 @@ const ChapterVideoForm = ({initialData,courseId,chapterId} : ChapterVideoFormPro
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }
@@ -82,7 +82,7 @@ const ChapterVideoForm = ({initialData,courseId,chapterId} : ChapterVideoFormPro
             }}
              />
              <div className=' text-xs text-muted-foreground mt-4'>
-             Upload this Chapter's video
+             Upload this Chapter &apos; s video
             </div>
         </div>
         

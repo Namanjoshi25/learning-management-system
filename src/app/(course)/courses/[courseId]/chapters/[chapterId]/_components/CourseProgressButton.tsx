@@ -44,6 +44,7 @@ const CourseProgressButton = ({
             router.refresh()
         } catch (error) {
             toast.error("Something went wrong")
+            console.log(error);
         }finally{
             setIsLoading(false)
         }
@@ -54,6 +55,7 @@ type="button"
  variant={isCompleted ? "outline" :"success"}
  className=" w-full md:w-auto"
  onClick={onClick}
+ disabled={isLoading}
 
 >
 {isCompleted ? "Not completed" : "Mark as complete"}

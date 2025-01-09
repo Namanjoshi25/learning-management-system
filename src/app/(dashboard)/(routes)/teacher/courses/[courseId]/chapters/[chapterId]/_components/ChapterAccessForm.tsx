@@ -1,7 +1,7 @@
 "use client"
 import * as z from 'zod'
 import axios from 'axios'
-import { Chapter, Course } from '@prisma/client'
+import { Chapter } from '@prisma/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {useForm} from 'react-hook-form'
 import {
@@ -19,7 +19,6 @@ import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import {Checkbox} from '@/components/ui/checkbox'
-import { Preview } from '@/components/preview'
 
 
 
@@ -27,7 +26,7 @@ interface ChapterAccessFormProps {
     initialData : Chapter
    chapterId : string
     
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({
@@ -57,6 +56,7 @@ const ChapterAccessForm = ({initialData,courseId,chapterId} : ChapterAccessFormP
         
     } catch (error) {
         toast.error("Something went wrong")
+        console.log(error);
     }
  }
   return (

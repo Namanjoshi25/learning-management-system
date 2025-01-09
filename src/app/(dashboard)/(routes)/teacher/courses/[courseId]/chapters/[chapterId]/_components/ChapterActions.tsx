@@ -11,8 +11,8 @@ import toast from "react-hot-toast"
 interface ChapterActionsProps{
     disabled : boolean,
     isPublished : boolean,
-    courseId :String,
-    chapterId :String
+    courseId :string,
+    chapterId :string
 }
 
 const ChapterActions = ({disabled , isPublished , courseId ,chapterId} : ChapterActionsProps) => {
@@ -27,6 +27,7 @@ const ChapterActions = ({disabled , isPublished , courseId ,chapterId} : Chapter
         router.push(`/teacher/courses/${courseId}`)
     } catch (error) {
         toast.error("Something went wrong")
+        console.log(error);
     }finally{
         setisLoading(false)
     }
@@ -48,6 +49,7 @@ const ChapterActions = ({disabled , isPublished , courseId ,chapterId} : Chapter
             
         } catch (error) {
             toast.error("Something went wrong")
+            console.log(error);
             
         }finally{
             setisLoading(false)

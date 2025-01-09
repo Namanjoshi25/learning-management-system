@@ -11,7 +11,7 @@ import {
     FormItem,
     FormMessage
 } from '@/components/ui/form'
-import { Textarea} from '@/components/ui/textarea'   
+
 import { Button } from '@/components/ui/button'
 import { Pencil } from 'lucide-react'
 import { useState } from 'react'
@@ -27,7 +27,7 @@ interface PriceFormProps {
     initialData : Course
 
     
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({
@@ -56,6 +56,7 @@ const PriceForm = ({initialData,courseId} : PriceFormProps) => {
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }

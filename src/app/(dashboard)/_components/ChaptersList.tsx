@@ -3,7 +3,7 @@ import { Chapter } from '@prisma/client'
 import React, { useEffect, useState } from 'react'
 import {DragDropContext , Droppable,Draggable,DropResult} from '@hello-pangea/dnd'
 import {cn} from '@/lib/utils'
-import { Grid, Grip, Pencil } from 'lucide-react'
+import { Grip, Pencil } from 'lucide-react'
 import { Badge } from '@/components/ui/badge'
 
 

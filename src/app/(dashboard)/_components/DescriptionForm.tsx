@@ -25,7 +25,7 @@ interface DescriptionFormProps {
     initialData : Course
 
     
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({
@@ -56,6 +56,7 @@ const DescriptionForm = ({initialData,courseId} : DescriptionFormProps) => {
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }

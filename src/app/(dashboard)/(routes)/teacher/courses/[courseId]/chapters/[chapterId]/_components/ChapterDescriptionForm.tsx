@@ -1,7 +1,7 @@
 "use client"
 import * as z from 'zod'
 import axios from 'axios'
-import { Chapter, Course } from '@prisma/client'
+import { Chapter } from '@prisma/client'
 import { zodResolver } from '@hookform/resolvers/zod'
 import {useForm} from 'react-hook-form'
 import {
@@ -11,7 +11,6 @@ import {
     FormItem,
     FormMessage
 } from '@/components/ui/form'
-import { Textarea} from '@/components/ui/textarea'   
 import { Button } from '@/components/ui/button'
 import { Pencil } from 'lucide-react'
 import { useState } from 'react'
@@ -19,16 +18,14 @@ import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { Editor } from '@/components/editor'
-import { init } from 'next/dist/compiled/webpack/webpack'
 import { Preview } from '@/components/preview'
-
 
 
 interface ChapterDescriptionFormProps {
     initialData : Chapter
    chapterId : string
     
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({

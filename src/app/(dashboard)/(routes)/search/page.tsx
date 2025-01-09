@@ -3,7 +3,7 @@ import Categories from "./_components/Categories"
 import SearchInput from "./_components/SearchInput"
 import { GetCourse } from "@/actions/GetCourses"
 import { auth } from "@clerk/nextjs/server"
-import { redirect, useSearchParams } from "next/navigation"
+import { redirect } from "next/navigation"
 import CoursesList from "@/components/coursesList"
 
 interface SearchParamsProps {

@@ -12,7 +12,7 @@ import toast from "react-hot-toast"
 interface CourseActionsProps{
     disabled : boolean,
     isPublished : boolean,
-    courseId :String,
+    courseId :string,
    
 }
 
@@ -29,6 +29,7 @@ const CourseActions = ({disabled , isPublished , courseId } : CourseActionsProps
         router.push(`/teacher/courses`)
     } catch (error) {
         toast.error("Something went wrong")
+        console.log(error);
     }finally{
         setisLoading(false)
     }
@@ -50,6 +51,7 @@ const CourseActions = ({disabled , isPublished , courseId } : CourseActionsProps
             router.refresh()
             
         } catch (error) {
+            console.log(error);
             toast.error("Something went wrong")
             
         }finally{

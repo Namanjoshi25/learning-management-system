@@ -26,7 +26,7 @@ interface ChapterFormProps {
     initialData : Course & {chapters : Chapter[]}
 
     
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({
@@ -56,6 +56,7 @@ const ChapterForm = ({initialData,courseId} : ChapterFormProps) => {
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }
@@ -69,6 +70,7 @@ try {
     router.refresh()
     
 } catch (error) {
+    console.log(error);
 toast.error("Something went wrong")
 }finally{ setIsUpdating(false)}
 

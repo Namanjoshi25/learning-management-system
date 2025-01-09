@@ -54,7 +54,7 @@ export async function PATCH(
 
             
         } catch (error) {
-            console.log("Error while publishing the chapter");
+            console.log("Error while publishing the chapter",error);
             return new NextResponse("Internal Error",{status: 500})
         }
 

@@ -10,7 +10,6 @@ export async function PUT
         const {userId} = await auth();
         const {courseId} = params;
         const list = await req.json()
-        console.log(list);
 
         if(!userId) return new NextResponse("Unauthorized",{status:401})
             
@@ -23,7 +22,7 @@ export async function PUT
         
             if(!CourseOwner) return new NextResponse("Unauthorized",{status:401})
 
-               for(let item of list.list){
+               for(const item of list.list){
                 await db.chapter.update({
                     where :{
                         id : item.id

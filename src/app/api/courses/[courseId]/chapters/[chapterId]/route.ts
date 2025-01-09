@@ -2,8 +2,7 @@ import Mux from "@mux/mux-node"
 import { db } from "@/lib/db";
 import { auth } from "@clerk/nextjs/server";
 import { NextResponse } from "next/server";
-import { Video } from "@mux/mux-node/resources/index.mjs";
-import { deleteCache } from "next/dist/server/lib/render-server";
+
 
 const { video }= new Mux({
     tokenId: process.env.MUX_TOKEN_ID!,
@@ -35,7 +34,7 @@ export async function PATCH(
                 id:chapterId,
                 courseId:courseId
             },
-            data:{...values}
+            data:{...values,isPublished}
         })
         if(values.videoUrl){
             const existingMuxData  = await db.muxData.findFirst({

@@ -36,7 +36,7 @@ try {
     const courses =purchaseCourses.map(purchase => purchase.course) as CourseWithProgressWithCategory[]
 
 
-    for(let course of courses){
+    for(const course of courses){
         const progress = await GetProgress(userId, course.id)
         course["progress"]=progress
     }

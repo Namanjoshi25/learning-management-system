@@ -13,13 +13,11 @@ import FileUpload from '@/components/file-upload'
 
 interface ImageFormProps {
     initialData :Course
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({
-    imageUrl: z.string().min(1,{
-        message : "Image  is required"
-    })
+    imageUrl: z.string()
 })
 const DescriptionForm = ({initialData,courseId} : ImageFormProps) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -34,6 +32,7 @@ const DescriptionForm = ({initialData,courseId} : ImageFormProps) => {
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }

@@ -51,6 +51,7 @@ const ChapterTitleForm = ({initialData,courseId,chapterId} : ChapterTitleFormPro
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }

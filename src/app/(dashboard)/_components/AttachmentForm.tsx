@@ -2,22 +2,21 @@
 import * as z from 'zod'
 import axios from 'axios' 
 import { Button } from '@/components/ui/button'
-import { File, ImageIcon, Loader2, Pencil, PlusCircle, X } from 'lucide-react'
+import { File,  Loader2,  PlusCircle, X } from 'lucide-react'
 import { useState } from 'react'
 import toast from 'react-hot-toast'
 import { useRouter } from 'next/navigation'
 import { Attachment, Course } from '@prisma/client'
-import Image from 'next/image'
 import FileUpload from '@/components/file-upload'
 
 
 interface AttachmentFormProps {
     initialData :Course & {attachments :Attachment[]}
-    courseId : String
+    courseId : string
     
 }
 const formSchema = z.object({
-    url: z.string().min(1)
+    url: z.string()
 })
 const AttackmentForm = ({initialData,courseId} : AttachmentFormProps) => {
     const [isEditing, setIsEditing] = useState(false);
@@ -33,6 +32,7 @@ const AttackmentForm = ({initialData,courseId} : AttachmentFormProps) => {
         
         
     } catch (error) {
+        console.log(error);
         toast.error("Something went wrong")
     }
  }
@@ -44,6 +44,7 @@ try {
     router.refresh()
     
 } catch (error) {
+    console.log(error);
     toast.error("Something went wrong")
 }finally{
     setDeletingId(null)

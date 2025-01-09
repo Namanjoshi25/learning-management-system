@@ -1,5 +1,4 @@
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+
 import React from 'react'
 import { DataTable } from './_components/data-table'
 import { columns } from './_components/column'

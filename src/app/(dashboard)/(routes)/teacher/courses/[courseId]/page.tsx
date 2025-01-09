@@ -8,10 +8,9 @@ import {
   CircleDollarSign,
   File,
   LayoutDashboard,
-  ListCheck,
   ListChecks,
 } from "lucide-react";
-import { redirect, useParams } from "next/navigation";
+import { redirect } from "next/navigation";
 import CategoryForm from "@/app/(dashboard)/_components/CategoryForm";
 import PriceForm from "@/app/(dashboard)/_components/PriceForm";
 import AttackmentForm from "@/app/(dashboard)/_components/AttachmentForm";
