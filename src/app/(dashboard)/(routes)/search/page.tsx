@@ -5,6 +5,7 @@ import { GetCourse } from "@/actions/GetCourses"
 import { auth } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 import CoursesList from "@/components/coursesList"
+import { Suspense } from "react"
 
 interface SearchParamsProps {
  searchParams:{
@@ -33,7 +34,9 @@ async function Search ({searchParams} :SearchParamsProps) {
   return (
     <>
     <div className=" px-6 pt-6 md:hidden md:mb-0 block">
+    <Suspense fallback={<div>Loading search input...</div>}>
       <SearchInput/>
+      </Suspense>
     </div>
     <div className=" p-6 space-y-4">
       <Categories
