@@ -33,20 +33,26 @@ async function Search ({searchParams} :SearchParamsProps) {
 
   return (
     <>
-    <div className=" px-6 pt-6 md:hidden md:mb-0 block">
-    <Suspense fallback={<div>Loading search input...</div>}>
-      <SearchInput/>
-      </Suspense>
-    </div>
-    <div className=" p-6 space-y-4">
-      <Categories
-      items={categories}
-      />
-      <CoursesList
-      items = {courses}
-      />
+   <div className="px-6 pt-6 block md:hidden md:mb-0">
+  <Suspense fallback={<div className="text-center text-gray-500">Loading search input...</div>}>
+    <SearchInput />
+  </Suspense>
+</div>
 
-    </div>
+<div className="p-6 space-y-4">
+  {categories && categories.length > 0 ? (
+    <Categories items={categories} />
+  ) : (
+    <div className="text-center text-gray-500">No categories available</div>
+  )}
+
+  {courses && courses.length > 0 ? (
+    <CoursesList items={courses} />
+  ) : (
+    <div className="text-center text-gray-500">No courses found</div>
+  )}
+</div>
+
     </>
   )
 }
