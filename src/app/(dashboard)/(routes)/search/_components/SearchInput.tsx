@@ -1,4 +1,4 @@
-"use client"
+'use client'
 import { Input } from "@/components/ui/input"
 import { useDebounce } from "@/hooks/useDebounce"
 import { Search } from "lucide-react"

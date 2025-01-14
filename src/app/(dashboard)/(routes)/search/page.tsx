@@ -1,11 +1,12 @@
 import { db } from "@/lib/db"
 import Categories from "./_components/Categories"
-import SearchInput from "./_components/SearchInput"
+
 import { GetCourse } from "@/actions/GetCourses"
 import { auth } from "@clerk/nextjs/server"
 import { redirect } from "next/navigation"
 import CoursesList from "@/components/coursesList"
 import { Suspense } from "react"
+import dynamic from "next/dynamic"
 
 interface SearchParamsProps {
  searchParams:{
@@ -13,7 +14,9 @@ interface SearchParamsProps {
   categoryId :string
  }
 }
-
+const SearchInput = dynamic(() => import("./_components/SearchInput"), {
+  ssr: false, // Ensures it's rendered on the client only
+});
 async function Search ({searchParams} :SearchParamsProps) {
 
   const {userId} =await auth();
@@ -34,9 +37,8 @@ async function Search ({searchParams} :SearchParamsProps) {
   return (
     <>
    <div className="px-6 pt-6 block md:hidden md:mb-0">
-  <Suspense fallback={<div className="text-center text-gray-500">Loading search input...</div>}>
     <SearchInput />
-  </Suspense>
+
 </div>
 
 <div className="p-6 space-y-4">
