@@ -37,7 +37,9 @@ async function Search ({searchParams} :SearchParamsProps) {
   return (
     <>
    <div className="px-6 pt-6 block md:hidden md:mb-0">
-    <SearchInput />
+   <Suspense fallback={<div>Loading search input...</div>}>
+  <SearchInput />
+</Suspense>;
 
 </div>
 
